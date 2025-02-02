@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import marcasRoutes from './routers/marcas.routers.js';
 import usersRoutes from './routers/usuarios.routers.js';
 import categoriasRoutes from './routers/categorias.routers.js';
+import proveedorRoutes from './routers/proveedor.routers.js';
 
 const app = express();
 
@@ -14,5 +15,7 @@ app.use(express.json());
 app.use('/api/marcas', marcasRoutes)
 app.use('/api/usuarios', usersRoutes)
 app.use('/api/categorias', categoriasRoutes)
+app.use('/api/proveedor', proveedorRoutes)
+
 
 export default app;
