@@ -1,5 +1,6 @@
 import logger from '../logs/logger.js';
 import { Marca } from '../models/marcas.js';
+
 async function getMarcas(req, res) {
     try {
         const marcas = await Marca.findAll({
