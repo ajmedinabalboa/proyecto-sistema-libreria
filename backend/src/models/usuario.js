@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
+import { Rol } from "./Rol.js";
 
 export const Usuario = sequelize.define('usuarios', {
     id: {
@@ -11,9 +12,7 @@ export const Usuario = sequelize.define('usuarios', {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notNull: {
-                msg: "El nombre es obligatorio"
-            },
+            notNull: { msg: "El nombre es obligatorio" },
             len: [3, 50]
         }
     },
@@ -22,20 +21,18 @@ export const Usuario = sequelize.define('usuarios', {
         allowNull: false,
         unique: true,
         validate: {
-            isEmail: {
-                msg: "Debe ser un correo válido"
-            }
+            isEmail: { msg: "Debe ser un correo válido" }
         }
     },
     contraseña: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            notNull: {
-                msg: "La contraseña es obligatoria"
-            },
+            notNull: { msg: "La contraseña es obligatoria" },
             len: [6, 100]
         }
     },
-    
 });
+
+Usuario.belongsTo(Rol, { foreignKey: "rolId", as: "rol" });
+Rol.hasMany(Usuario, { foreignKey: "rolId" });
