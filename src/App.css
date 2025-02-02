@@ -92,3 +92,14 @@ body {
   text-align: center;
   padding-top: 120px; /* Ajusta la distancia desde arriba */
 }
+
+
+.btn_login{
+  padding: 10px 30px;
+  background: #4CAF50;;
+  border: none;
+  color: #d9d9e8;
+  font-size: "16px";
+  font-weight: bold;
+  cursor: pointer;
+}

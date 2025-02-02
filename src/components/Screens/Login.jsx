@@ -1,7 +1,9 @@
+import FormLogin from "../Forms/FomLogin.jsx";
 const Login = () => {
     return (
         <div>
-            <h1>Login</h1>
+          
+            <FormLogin titleForm={"Bienvenido a la Libreria G2 React"}/>
         </div>
     )
 }
