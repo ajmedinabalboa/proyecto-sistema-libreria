@@ -225,6 +225,126 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Unidades de Medidas",
+			"request": {
+				"method": "GET",
+                "header": [],                
+                "url": {
+                    "raw": "localhost:3001/api/unidadesmedidas",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3001",
+                    "path": [
+                        "api",
+                        "unidadesmedidas"
+                    ]
+                }
+			},
+			"response": []
+		},
+		{
+			"name": "Get Unidades de Medidas by Id",
+			"request": {
+				"method": "GET",
+                "header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+                "url": {
+                    "raw": "localhost:3001/api/unidadesmedidas/1",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3001",
+                    "path": [
+                        "api",
+                        "unidadesmedidas",
+						"1"
+                    ]
+                }
+			},
+			"response": []
+		},
+		{
+			"name": "Create Unidades de Medidas",
+			"request": {
+				"method": "POST",
+                "header": [],
+				"body":{
+					"mode": "raw",
+                    "raw": "{\r\n    \"nombre_unidadmedida\": \"Docena\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+				},              
+                "url": {
+                    "raw": "localhost:3001/api/unidadesmedidas",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3001",
+                    "path": [
+                        "api",
+                        "unidadesmedidas"
+                    ]
+                }
+			},
+			"response": []
+		},
+		{
+			"name": "Update Unidades de Medidas",
+            "request": {
+                "method": "PATCH",
+                "header": [],
+                "body":{
+                    "mode": "raw",
+                    "raw": "{\r\n    \"nombre_unidadmedida\": \"Centena\" \r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },              
+                "url": {
+                    "raw": "localhost:3001/api/unidadesmedidas/2",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3001",
+                    "path": [
+                        "api",
+                        "unidadesmedidas",
+                        "2"
+                    ]
+                }
+            },
+            "response": []
+		},
+		{
+			"name": "Delete Unidades de Medidas",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "localhost:3001/api/unidadesmedidas/2",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3001",
+                    "path": [
+                        "api",
+                        "unidadesmedidas",
+                        "3"
+                    ]
+                }
+            },
+            "response": []
 		}
 	]
 }
