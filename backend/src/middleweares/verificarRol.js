@@ -3,7 +3,7 @@ import { Rol } from "../models/roles.js";
 
 export const verificarRol = (rolesPermitidos) => {
     return async (req, res, next) => {
-        try {
+        /*try {
             const usuario = await Usuario.findByPk(req.usuario.id, {
                 include: { model: Rol, as: "rol" }
             });
@@ -15,6 +15,6 @@ export const verificarRol = (rolesPermitidos) => {
             next();
         } catch (error) {
             res.status(500).json({ mensaje: "Error de autenticación" });
-        }
+        }*/
     };
 };

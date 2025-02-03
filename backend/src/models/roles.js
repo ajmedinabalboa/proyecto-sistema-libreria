@@ -13,3 +13,4 @@ export const Rol = sequelize.define("roles", {
     unique: true,
   },
 });
+
