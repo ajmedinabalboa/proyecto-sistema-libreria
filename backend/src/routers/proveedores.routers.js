@@ -6,4 +6,10 @@ router.route('/')
     .get(proveedorController.getProveedor)
     .post(proveedorController.createProveedor);
 
+router
+    .route('/:id')
+    .get(proveedorController.getProveedorById)
+    .patch(proveedorController.updateProveedor)
+    .delete(proveedorController.deleteProveedor);
+
 export default router;
