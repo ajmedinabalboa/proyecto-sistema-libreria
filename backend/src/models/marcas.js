@@ -16,7 +16,7 @@ export const Marca = sequelize.define('marcas', {
             notNull: {
                 msg: "El nombre de la marca es obligatorio"
             },
-            len: [3, 50]
+            len: [3, 90]
         }
     }
 });
