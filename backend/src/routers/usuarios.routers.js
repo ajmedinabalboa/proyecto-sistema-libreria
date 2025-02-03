@@ -4,7 +4,8 @@ import { verificarRol } from "../middleweares/verificarRol.js";
 
 const router = Router();
 
-router.get('/', verificarRol(["admin"]), usersController.getUsers);
+//router.get('/', verificarRol(["admin"]), usersController.getUsers);
+router.get('/', usersController.getUsers);
 router.post('/', usersController.createUser);
 
 // Ruta de prueba para diferentes roles
