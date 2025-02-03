@@ -1,5 +1,5 @@
 import logger from '../logs/logger.js';
-import { Proveedor } from '../models/proveedor.js';
+import { Proveedor } from '../models/proveedores.js';
 
 async function getProveedor(req, res) {
     try {
