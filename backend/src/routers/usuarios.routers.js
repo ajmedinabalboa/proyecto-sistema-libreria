@@ -1,5 +1,5 @@
 import { Router } from "express";
-import usersController from "../controllers/usuario.controllers.js";
+import usersController from "../controllers/usuarios.controllers.js";
 import { verificarRol } from "../middleweares/verificarRol.js";
 
 const router = Router();
@@ -12,8 +12,8 @@ router.get('/admin', verificarRol(["admin"]), (req, res) => {
     res.json({ mensaje: "Bienvenido, administrador" });
 });
 
-router.get('/profesor', verificarRol(["profesor"]), (req, res) => {
-    res.json({ mensaje: "Bienvenido, profesor" });
+router.get('/ventas', verificarRol(["ventas"]), (req, res) => {
+    res.json({ mensaje: "Bienvenido, ventas" });
 });
 
 router.get('/almacen', verificarRol(["almacen"]), (req, res) => {

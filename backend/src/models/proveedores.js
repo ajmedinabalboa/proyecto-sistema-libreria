@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 
-export const Proveedor = sequelize.define('proveedor', {
+export const Proveedor = sequelize.define('proveedores', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

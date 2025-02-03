@@ -1,5 +1,5 @@
-import { Usuario } from "../models/usuario.js";
-import { Rol } from "../models/Rol.js";
+import { Usuario } from "../models/usuarios.js";
+import { Rol } from "../models/roles.js";
 
 export const verificarRol = (rolesPermitidos) => {
     return async (req, res, next) => {
