@@ -2,21 +2,21 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 
-export const Marca = sequelize.define('marcas', {
+export const UnidadMedida = sequelize.define('unidadesmedidas', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    nombre_marca: {
+    nombre_unidadmedida: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
         validate: {
             notNull: {
-                msg: "El nombre de la marca es obligatorio"
+                msg: "El nombre de la Unidad Medida es obligatorio"
             },
-            len: [3, 90]
+            len: [3, 50]
         }
     }
 });

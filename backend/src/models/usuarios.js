@@ -1,6 +1,12 @@
+<<<<<<< HEAD:backend/src/models/usuario.js
     import { DataTypes } from "sequelize";
     import sequelize from "../database/database.js";
     import { Rol } from "./Rol.js";
+=======
+import { DataTypes } from "sequelize";
+import sequelize from "../database/database.js";
+import { Rol } from "./roles.js";
+>>>>>>> a2acded5c95b7c1079d68ebb9da7a9f5ded89671:backend/src/models/usuarios.js
 
     export const Usuario = sequelize.define('usuarios', {
         id: {
