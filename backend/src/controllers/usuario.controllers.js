@@ -4,7 +4,7 @@ import { Usuario } from '../models/usuario.js';
 async function getUsers(req, res) {
     try {
         const users = await Usuario.findAll({
-            attributes: ['id', 'nombre', 'email', 'contraseña'], 
+            attributes: ['id', 'nombre', 'email', 'contraseña', 'rolId'], 
             order: [['id', 'DESC']],
        
         });
@@ -18,8 +18,8 @@ async function getUsers(req, res) {
 
 async function createUser(req, res) {
     try {
-        const {nombre, email, contraseña } = req.body;
-        const user = await Usuario. create({ nombre, email, contraseña });
+        const {nombre, email, contraseña, rolId } = req.body;
+        const user = await Usuario. create({ nombre, email, contraseña, rolId });
         res.json(user);
     } catch (error) {
         logger.error('Error createUser: ', + error);
