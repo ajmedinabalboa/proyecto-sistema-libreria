@@ -6,6 +6,7 @@ import categoriasRoutes from './routers/categorias.routers.js';
 import proveedoresRoutes from './routers/proveedores.routers.js';
 import unidadesmedidasRoutes from './routers/unidadesmedidas.routers.js';
 import cors from 'cors';
+import materialesRoutes from './routers/materiales.routers.js';
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use('/api/usuarios', usersRoutes)
 app.use('/api/categorias', categoriasRoutes)
 app.use('/api/proveedores', proveedoresRoutes)
 app.use('/api/unidadesmedidas', unidadesmedidasRoutes)
+app.use('/api/materiales', materialesRoutes)
 
 export default app;
