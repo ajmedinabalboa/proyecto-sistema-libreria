@@ -5,11 +5,8 @@ import usersRoutes from './routers/usuarios.routers.js';
 import categoriasRoutes from './routers/categorias.routers.js';
 import proveedoresRoutes from './routers/proveedores.routers.js';
 import unidadesmedidasRoutes from './routers/unidadesmedidas.routers.js';
-<<<<<<< Updated upstream
 import cors from 'cors';
-=======
 import materialesRoutes from './routers/materiales.routers.js';
->>>>>>> Stashed changes
 
 const app = express();
 
