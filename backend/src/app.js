@@ -5,12 +5,14 @@ import usersRoutes from './routers/usuarios.routers.js';
 import categoriasRoutes from './routers/categorias.routers.js';
 import proveedoresRoutes from './routers/proveedores.routers.js';
 import unidadesmedidasRoutes from './routers/unidadesmedidas.routers.js';
+import cors from 'cors';
 
 const app = express();
 
 // Middleware for logging HTTP requests
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.use('/api/marcas', marcasRoutes)
