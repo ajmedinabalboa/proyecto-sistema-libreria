@@ -431,6 +431,26 @@
 			"response": []
 		},
 		{
+			"name": "Get Material by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/materiales/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"materiales",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create Materiales",
 			"request": {
 				"method": "POST",
@@ -456,6 +476,55 @@
                     ]
                 }
             },
+			"response": []
+		},
+		{
+			"name": "Update Material",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_material\": \"Marcador\",\r\n    \"descripcion_material\": \"Descripción del Material Marcador\",\r\n    \"precio_unitario\": 30.0\r\n,\r\n    \"stock_actual\": 0\r\n,\r\n    \"stock_minimo\": 5\r\n,\r\n    \"fecha_creacion\": new Date()\r\n,\r\n    \"id_categoria\": 1\r\n,\r\n    \"id_marca\": 1\r\n,\r\n    \"id_unidadmedida\": 1\r\n,\r\n    \"id_proveedor\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/materiales/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"materiales",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Material",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/materiales/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"materiales",
+						"1"
+					]
+				}
+			},
 			"response": []
 		}
 	]
