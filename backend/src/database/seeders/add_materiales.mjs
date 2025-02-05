@@ -29,6 +29,6 @@ export async function add_materiales() {
     ];
 
     for (const material of materiales) {
-        await Material.findOrCreate({ where: { nombre_material: material.nombre_material }, defaults: material });
+        await Material.findOrCreate({ where: { nombre_material: material.nombre_material }, nombre_material: material.nombre_material });
     }
 }
