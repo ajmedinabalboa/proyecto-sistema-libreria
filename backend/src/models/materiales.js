@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 
-import { Categorias } from "./categorias.js";
+import { Categoria } from "./categorias.js";
 import { Marca } from "./marcas.js";
 import { UnidadMedida } from "./unidadesmedidas.js";
 import { Proveedor } from "./proveedores.js";
@@ -53,8 +53,8 @@ export const Material = sequelize.define('materiales', {
     }
 });
 
-Material.belongsTo(Categorias, { foreignKey: 'id_categoria' });
-Categorias.hasMany(Material, { foreignKey: 'id_categoria' });
+Material.belongsTo(Categoria, { foreignKey: 'id_categoria' });
+Categoria.hasMany(Material, { foreignKey: 'id_categoria' });
 
 Material.belongsTo(Marca, { foreignKey: 'id_marca' });
 Marca.hasMany(Material, { foreignKey: 'id_marca' });
