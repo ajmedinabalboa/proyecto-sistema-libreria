@@ -17,8 +17,8 @@ app.use(cors());
 
 // Routes
 app.use('/api/marcas', marcasRoutes)
-app.use('/api/usuarios', usersRoutes)
 app.use('/api/categorias', categoriasRoutes)
+app.use('/api/usuarios', usersRoutes)
 app.use('/api/proveedores', proveedoresRoutes)
 app.use('/api/unidadesmedidas', unidadesmedidasRoutes)
 app.use('/api/materiales', materialesRoutes)
