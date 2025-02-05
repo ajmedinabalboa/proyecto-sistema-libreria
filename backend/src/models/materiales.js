@@ -53,14 +53,14 @@ export const Material = sequelize.define('materiales', {
     }
 });
 
-Material.belongsTo(Categoria, { foreignKey: 'id_categoria' });
 Categoria.hasMany(Material, { foreignKey: 'id_categoria' });
+Material.belongsTo(Categoria, { foreignKey: 'id_categoria', as: 'categoria' });
 
-Material.belongsTo(Marca, { foreignKey: 'id_marca' });
 Marca.hasMany(Material, { foreignKey: 'id_marca' });
+Material.belongsTo(Marca, { foreignKey: 'id_marca', as: 'marca' });
 
-Material.belongsTo(UnidadMedida, { foreignKey: 'id_unidadmedida' });
 UnidadMedida.hasMany(Material, { foreignKey: 'id_unidadmedida' });
+Material.belongsTo(UnidadMedida, { foreignKey: 'id_unidadmedida', as:'unidadmedida' });
 
-Material.belongsTo(Proveedor, { foreignKey: 'id_proveedor' });
 Proveedor.hasMany(Material, { foreignKey: 'id_proveedor' });
+Material.belongsTo(Proveedor, { foreignKey: 'id_proveedor', as: 'proveedor' });
