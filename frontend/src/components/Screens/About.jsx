@@ -1,9 +1,9 @@
-import Marca from '../Screens/Marca.jsx';
+
 const About = () => {
     return (
         <div>
-            <h1>About</h1>
-            <Marca/>
+            <h1>Grupo 2 </h1>
+            
         </div>
     )
 }

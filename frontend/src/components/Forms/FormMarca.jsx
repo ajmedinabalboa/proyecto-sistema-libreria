@@ -5,11 +5,7 @@ const MarcasList = () => {
     const [marcas, setMarcas] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [editMode, setEditMode] = useState(false); // Estado para saber si estamos en modo edición
     const [marcaToEdit, setMarcaToEdit] = useState(null); // La marca que vamos a editar
-    const [updatedNombreMarca, setUpdatedNombreMarca] = useState(""); // Nuevo nombre para la marca
-    const [newMarca, setNewMarca] = useState("");
-    const [showAddForm, setShowAddForm] = useState(false);
     const [nombreMarca, setNombreMarca] = useState("");
 
     useEffect(() => {
@@ -93,12 +89,8 @@ const MarcasList = () => {
       <div>
         <h2>Lista de Marcas</h2>
         <button className="btn_add" onClick={() => openModal()}>Agregar Marca</button>
-
-      
-       
         <br></br>
-        
-        <table>
+         <table>
             <thead>
               <tr>
                 <th>ID</th>
