@@ -7,4 +7,9 @@ router.route('/')
     .get(categoriasController.getCategorias)
     .post(categoriasController.createCategoria);
 
+router.route('/:id')
+    .get(categoriasController.getCategoriaById)
+    .patch(categoriasController.updateCategoria)
+    .delete(categoriasController.deleteCategoria);
+
 export default router;
