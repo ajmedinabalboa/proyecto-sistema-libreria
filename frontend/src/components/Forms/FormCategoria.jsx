@@ -41,7 +41,7 @@ const CategoriasList = () => {
 
   
 
-  // Función para manejar la actualización de la marca
+  // Función para manejar la actualización de la marca //en espera de la api de actualizacion
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevenimos el comportamiento por defecto del formulario
 
@@ -67,7 +67,7 @@ const CategoriasList = () => {
   };
 
 
-  //funcion para eliminar la categoria
+  //funcion para eliminar la categoria  //en espera de la api de eliminacion
     const handleDelete = async (id) => {
       if (!window.confirm("¿Estás seguro de que quieres eliminar esta categoria?")) {
         return;
@@ -126,7 +126,7 @@ const CategoriasList = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <br />
-            <br />
+            
             
             <input
               type="text"
@@ -134,16 +134,17 @@ const CategoriasList = () => {
               onChange={(e) => setNombreCategoria(e.target.value)}
               placeholder="Nombre de la Categoria"
             />
-            <input
-              type="text"
-              value={descripcionCategoria}
-              onChange={(e) => setDescripcionCategoria(e.target.value)}
-              placeholder="descripcion de la Categoria"
+            <br />
+            <br />
+            <textarea
+            value={descripcionCategoria}
+            onChange={(e) => setDescripcionCategoria(e.target.value)}
+            placeholder="Descripción de la Categoría"
+            rows="4" // Puedes ajustar la altura inicial
+            cols="40" // Opcional: puedes definir el ancho
             />
             <br />
-            <br />
-            <br />
-            <br />
+           
             <button className="btn_save" type="submit">{categoriaToEdit ? "Actualizar" : "Guardar"}</button>
           </form>
         </div>
