@@ -10,7 +10,7 @@ export const Rol = sequelize.define("roles", {
   nombre: {
     type: DataTypes.ENUM("Administrador", "Ventas", "Almacen"),
     allowNull: false,
-    unique: true,
+    
   },
 });
 

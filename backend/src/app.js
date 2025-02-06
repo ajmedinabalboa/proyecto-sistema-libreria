@@ -6,6 +6,7 @@ import categoriasRoutes from './routers/categorias.routers.js';
 import proveedoresRoutes from './routers/proveedores.routers.js';
 import unidadesmedidasRoutes from './routers/unidadesmedidas.routers.js';
 
+
 const app = express();
 
 // Middleware for logging HTTP requests
