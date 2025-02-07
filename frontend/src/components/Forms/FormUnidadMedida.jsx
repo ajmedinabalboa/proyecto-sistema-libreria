@@ -1,22 +1,22 @@
 import  { useState, useEffect } from 'react';
-import { fetchMarcas, addMarca, updateMarca, deleteMarca } from '../../api/ApiMarcas.js'
+import { fetchUnidades, addUnidad, updateUnidad, deleteUnidad } from '../../api/ApiUnidadesMedidas.js'
 
-const MarcasList = () => {
-    const [marcas, setMarcas] = useState([]);
+const UnidadesList = () => {
+    const [unidades, setUnidades] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [marcaToEdit, setMarcaToEdit] = useState(null); // La marca que vamos a editar
+    const [unidadToEdit, setUnidadToEdit] = useState(null); // La marca que vamos a editar
    
-    const [nombreMarca, setNombreMarca] = useState("");
+    const [nombreUnidad, setNombreUnidad] = useState("");
 
     useEffect(() => {
-      cargarMarcas();
+      cargarUnidades();
     }, []);
  
-    const cargarMarcas = async () => {
+    const cargarUnidades = async () => {
       try {
-        const data = await fetchMarcas();
-        setMarcas(data);
+        const data = await fetchUnidades();
+        setUnidades(data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -24,55 +24,55 @@ const MarcasList = () => {
       }
     }; 
     // Abrir y cerrar el modal
-  const openModal = (marca = null) => {
-    setMarcaToEdit(marca);
-    setNombreMarca(marca ? marca.nombre_marca : ""); // Si es edición, llenamos el campo
+  const openModal = (unidad = null) => {
+    setUnidadToEdit(unidad);
+    setNombreUnidad(unidad ? unidad.nombre_unidadmedida : ""); // Si es edición, llenamos el campo
     document.getElementById("marcaModal").style.display = "block";
   };
   const closeModal = () => {
     document.getElementById("marcaModal").style.display = "none";
-    setMarcaToEdit(null);
-    setNombreMarca("");
+    setUnidadToEdit(null);
+    setNombreUnidad("");
   };
     // Función para manejar la actualización de la marca
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevenimos el comportamiento por defecto del formulario
 
-    if (!nombreMarca.trim()) {
-      alert("El nombre de la marca no puede estar vacío.");
+    if (!nombreUnidad.trim()) {
+      alert("El nombre de la Unidad de Medida no puede estar vacío.");
       return;
     }
 
     try {
-      if (marcaToEdit) {
+      if (unidadToEdit) {
         // Actualizar marca existente
-        const updatedMarca = await updateMarca(marcaToEdit.id, nombreMarca);
-        setMarcas(marcas.map((m) => (m.id === updatedMarca.id ? updatedMarca : m)));
+        const updatedUnidad = await updateUnidad(unidadToEdit.id, nombreUnidad);
+        setUnidades(unidades.map((u) => (u.id === updatedUnidad.id ? updatedUnidad : u)));
       } else {
         // Agregar nueva marca
-        const addedMarca = await addMarca(nombreMarca);
-        setMarcas([...marcas, addedMarca]);
+        const addedUnidad = await addUnidad(nombreUnidad);
+        setUnidades([...unidades, addedUnidad]);
       }
       closeModal();
     } catch (error) {
-      alert("Error al guardar la marca");
+      alert("Error al guardar la Unidad de Medida");
     }
   };
   //funcion para eliminar la marca
     const handleDelete = async (id) => {
-      if (!window.confirm("¿Estás seguro de que quieres eliminar esta marca?")) {
+      if (!window.confirm("¿Estás seguro de que quieres eliminar esta Unidad de Medida?")) {
         return;
       }
       try {
-        await deleteMarca(id);
-        setMarcas(marcas.filter((marca) => marca.id !== id));
+        await deleteUnidad(id);
+        setUnidades(unidades.filter((unidad) => unidad.id !== id));
       } catch (error) {
         console.error("Error:", error);
-        alert("No se pudo eliminar la marca");
+        alert("No se pudo eliminar la Unidad de Medida");
       }
       
     };
-    if (loading) {return <p>Cargando marcas...</p>; }
+    if (loading) {return <p>Cargando unidades de medida...</p>; }
     if (error) {return <p>Error: {error}</p>;}
 
 
@@ -81,11 +81,11 @@ const MarcasList = () => {
         <div className="card-table">
           {/* Encabezado con título y subtítulo */}
           <div className="table-header">
-            <h3 className="table-title">Lista de Marcas</h3>
+            <h3 className="table-title">Lista de Unidades de Medida</h3>
           </div>
       
           <button className="btn btn_add" onClick={() => openModal()}>
-            Agregar Marca
+            Agregar UnidadMedida
           </button>
           
           <table className="striped-table">
@@ -97,16 +97,16 @@ const MarcasList = () => {
               </tr>
             </thead>
             <tbody>
-             {marcas.map((marca) => (
-                <tr key={marca.id}>
-                  <td>{marca.id}</td>
-                  <td>{marca.nombre_marca}</td>
+             {unidades.map((unidad) => (
+                <tr key={unidad.id}>
+                  <td>{unidad.id}</td>
+                  <td>{unidad.nombre_unidadmedida}</td>
                   <td>
                     <div className="action-buttons">
-                      <button className="btn btn_update" onClick={() => openModal(marca)}>
+                      <button className="btn btn_update" onClick={() => openModal(unidad)}>
                         Editar
                       </button>
-                      <button className="btn btn_delete" onClick={() => handleDelete(marca.id)}>
+                      <button className="btn btn_delete" onClick={() => handleDelete(unidad.id)}>
                         Eliminar
                       </button>
                     </div>
@@ -118,19 +118,19 @@ const MarcasList = () => {
           <div id="marcaModal" className="modal"> 
             <div className="modal-content">
                <div className="modal-header">
-      <h3>{marcaToEdit ? "Editar Marca" : "Agregar Marca"}</h3>
+      <h3>{unidadToEdit ? "Editar Unidad de Medida" : "Agregar Unidad de Medida"}</h3>
       <button className="close-btn" onClick={closeModal}>X</button>
             </div>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                value={nombreMarca}
-                onChange={(e) => setNombreMarca(e.target.value)}
-                placeholder="Nombre de la marca"
+                value={nombreUnidad}
+                onChange={(e) => setNombreUnidad(e.target.value)}
+                placeholder="Nombre de la Unidad de Medida"
                 style={{width: '100%', margin: '10px 0', padding: '8px'}}
               />
               <button className="btn btn_save" type="submit">
-                {marcaToEdit ? "Actualizar" : "Guardar"}
+                {unidadToEdit ? "Actualizar" : "Guardar"}
               </button>
             </form>
           </div>
@@ -139,4 +139,4 @@ const MarcasList = () => {
       );
 // Fin de la implementación del formato de la tabla
   };
-  export default MarcasList;
+  export default UnidadesList;

@@ -27,6 +27,8 @@ const Navigator = () => {
           <img src={menuLogo.marca} alt="Marca" className="nav-icon" />Marca</Link></li>
           <li><Link to="/categoria" className={`nav-link ${location.pathname === "/categoria" ? "active" : ""}`}>
           <img src={menuLogo.categoria} alt="Categoria" className="nav-icon" />Categoria</Link></li>
+          <li><Link to="/unidad" className={`nav-link ${location.pathname === "/unidad" ? "active" : ""}`}>
+          <img src={menuLogo.unidad} alt="Unidad" className="nav-icon" />Unidad de Medida</Link></li>
           <li><Link to="/about" className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}>
           <img src={menuLogo.about} alt="About" className="nav-icon" />About</Link></li>
         </ul>
