@@ -33,15 +33,20 @@ async function getUser(req, res) {
         const user = await Usuario.findOne({ where: { email: email } });
         logger.info('User: ', contraseña);
         if (!user) {
-            return res.status(401).json({ message: 'Invalid email or password' }); // Or 404 Not Found
+            return res.status(401).json({ message: 'Email o password Invalido' }); // Or 404 Not Found
         }
-        if (user.contraseña == contraseña)
-            res.status(200).json({ message: 'Login successful' });
+        if (user.contraseña == contraseña) {
+            const userData = {
+                nombre: user.nombre,
+                rolId: user.rolId
+            }
+            res.status(200).json(userData);
+        }
         else
-            res.status(401).json({ message: 'Invalid email or password' });
+            res.status(401).json({ message: 'Email o password Invalido' });
     } catch (error) {
         logger.error('Error getUser: ', + error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Error in login' });
     }
 }
 

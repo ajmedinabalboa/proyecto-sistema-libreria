@@ -11,10 +11,16 @@ export async function add_usuarios() {
             "rolId": 1
         },
         {
-            "nombre": "Laura Cacerez",
+            "nombre": "Laura Caceres",
             "email": "lcaceres@gmail.com",
             "password": process.env.USER_PWD,
-            "rolId": 1
+            "rolId": 2
+        },
+        {
+            "nombre": "Juan Lopez",
+            "email": "jlopez@gmail.com",
+            "password": process.env.USER_PWD,
+            "rolId": 3
         }
     ];
     try {
