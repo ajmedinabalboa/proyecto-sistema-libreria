@@ -8,6 +8,10 @@ const router = Router();
 router.get('/', usersController.getUsers);
 router.post('/', usersController.createUser);
 
+router.route('/:id')
+    .get(usersController.getUserById)
+
+
 // Ruta de prueba para diferentes roles
 router.get('/admin', verificarRol(["admin"]), (req, res) => {
     res.json({ mensaje: "Bienvenido, administrador" });

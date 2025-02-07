@@ -4,7 +4,7 @@ import { Usuario } from '../models/usuarios.js';
 async function getUsers(req, res) {
     try {
         const users = await Usuario.findAll({
-            attributes: ['id', 'nombre', 'email', 'contraseña', 'rolId'], 
+            attributes: ['id', 'nombre', 'email', 'contraseña', 'rolId'],
             order: [['id', 'DESC']],
         });
         return res.json(users);
@@ -32,15 +32,34 @@ async function getUser(req, res) {
         const user = await Usuario.findOne({ where: { email: email } });
         logger.info('User: ', contraseña);
         if (!user) {
-            return res.status(401).json({ message: 'Invalid email or password' }); // Or 404 Not Found
+            return res.status(401).json({ message: 'Email o password Invalido' }); // Or 404 Not Found
         }
-        if (user.contraseña == contraseña)
-            res.status(200).json({ message: 'Login successful' });
+        if (user.contraseña == contraseña) {
+            const userData = {
+                nombre: user.nombre,
+                rolId: user.rolId
+            }
+            res.status(200).json(userData);
+        }
         else
-            res.status(401).json({ message: 'Invalid email or password' });
+            res.status(401).json({ message: 'Email o password Invalido' });
     } catch (error) {
         logger.error('Error getUser: ', + error);
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Error in login' });
+    }
+}
+
+async function getUserById(req, res) {
+    try {
+        const id = req.params.id;
+        const user = await Usuario.findByPk(id, {
+            attributes: ['id', 'nombre', 'email', 'rolId', 'updatedAt', 'createdAt'],
+        });
+        logger.info('Usuario por Id', { user });
+        return res.json(user);
+    } catch (err) {
+        logger.error('Error getUsuarioById', err);
+        res.status(500).json({ message: 'Error al obtener getUserById' });
     }
 }
 
@@ -48,7 +67,8 @@ async function getUser(req, res) {
 export default {
     getUsers,
     createUser,
-    getUser
+    getUser,
+    getUserById
 };
 
 
