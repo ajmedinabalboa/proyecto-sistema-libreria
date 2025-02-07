@@ -14,13 +14,13 @@ export async function add_usuarios() {
             "nombre": "Laura Caceres",
             "email": "lcaceres@gmail.com",
             "password": process.env.USER_PWD,
-            "rolId": 2
+            "rolId": 1
         },
         {
             "nombre": "Juan Lopez",
             "email": "jlopez@gmail.com",
             "password": process.env.USER_PWD,
-            "rolId": 3
+            "rolId": 1
         }
     ];
     try {
