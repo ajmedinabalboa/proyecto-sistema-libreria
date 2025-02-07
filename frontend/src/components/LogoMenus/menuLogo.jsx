@@ -9,6 +9,7 @@ const menuLogo = {
     login: LogIcon,
     marca: MarcaIcon,
     categoria: CategoriaIcon,
+    unidad: CategoriaIcon,
     about: AboutIcon,
 
 
