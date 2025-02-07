@@ -4,7 +4,7 @@ import { Usuario } from '../models/usuarios.js';
 async function getUsers(req, res) {
     try {
         const users = await Usuario.findAll({
-            attributes: ['id', 'nombre', 'email', 'contraseña', 'rolId'], 
+            attributes: ['id', 'nombre', 'email', 'contraseña', 'rolId'],
             order: [['id', 'DESC']],
         });
         return res.json(users);
@@ -49,11 +49,26 @@ async function getUser(req, res) {
     }
 }
 
+async function getUserById(req, res) {
+    try {
+        const id = req.params.id;
+        const user = await Usuario.findByPk(id, {
+            attributes: ['id', 'nombre', 'email', 'rolId', 'updatedAt', 'createdAt'],
+        });
+        logger.info('Usuario por Id', { user });
+        return res.json(user);
+    } catch (err) {
+        logger.error('Error getUsuarioById', err);
+        res.status(500).json({ message: 'Error al obtener getUserById' });
+    }
+}
+
 
 export default {
     getUsers,
     createUser,
-    getUser
+    getUser,
+    getUserById
 };
 
 
