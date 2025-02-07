@@ -74,58 +74,69 @@ const MarcasList = () => {
     };
     if (loading) {return <p>Cargando marcas...</p>; }
     if (error) {return <p>Error: {error}</p>;}
+
+
+    // Implementar formato a la tabla
     return (
-      <div>
-        <h2>Lista de Marcas</h2>
-        <button className="btn_add" onClick={() => openModal()}>Agregar Marca</button>
-        <br></br>  
-        <table>
+        <div className="card-table">
+          {/* Encabezado con título y subtítulo */}
+          <div className="table-header">
+            <h3 className="table-title">Lista de Categorías</h3>
+          </div>
+      
+          <button className="btn btn_add" onClick={() => openModal()}>
+            Agregar Categoria
+          </button>
+          
+          <table className="striped-table">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Descripcion</th>
-                <th >Accion</th>
+                <th>Accion</th>
               </tr>
             </thead>
             <tbody>
-              {marcas.map((marca) => (
+             {marcas.map((marca) => (
                 <tr key={marca.id}>
                   <td>{marca.id}</td>
                   <td>{marca.nombre_marca}</td>
                   <td>
-                    <button className ="btn_update" type="button" onClick={() => openModal(marca)}>Editar</button>
-                    <button className ="btn_delete" type="button" onClick={() => handleDelete(marca.id)}>Eliminar</button>
+                    <div className="action-buttons">
+                      <button className="btn btn_update" onClick={() => openModal(marca)}>
+                        Editar
+                      </button>
+                      <button className="btn btn_delete" onClick={() => handleDelete(marca.id)}>
+                        Eliminar
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </table> 
-          {/* Modal para agregar/editar marcas */}
-      <div id="marcaModal" className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h3>{marcaToEdit ? "Editar Marca" : "Agregar Marca"}</h3>
-            <button className="close-btn" onClick={closeModal}>X</button>
+          </table>
+          <div id="marcaModal" className="modal"> 
+            <div className="modal-content">
+               <div className="modal-header">
+      <h3>{marcaToEdit ? "Editar Marca" : "Agregar Marca"}</h3>
+      <button className="close-btn" onClick={closeModal}>X</button>
+            </div>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={nombreMarca}
+                onChange={(e) => setNombreMarca(e.target.value)}
+                placeholder="Nombre de la marca"
+                style={{width: '100%', margin: '10px 0', padding: '8px'}}
+              />
+              <button className="btn btn_save" type="submit">
+                {marcaToEdit ? "Actualizar" : "Guardar"}
+              </button>
+            </form>
           </div>
-          <form onSubmit={handleSubmit}>
-            <br />
-            <br />
-            <input
-              type="text"
-              value={nombreMarca}
-              onChange={(e) => setNombreMarca(e.target.value)}
-              placeholder="Nombre de la marca"
-            />
-            <br />
-            <br />
-            <br />
-            <br />
-            <button className="btn_save" type="submit">{marcaToEdit ? "Actualizar" : "Guardar"}</button>
-          </form>
         </div>
       </div>
-      </div>
-    );
+      );
+// Fin de la implementación del formato de la tabla
   };
-
   export default MarcasList;

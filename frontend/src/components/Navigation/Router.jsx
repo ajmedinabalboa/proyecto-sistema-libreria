@@ -3,6 +3,7 @@ import Home from "../../components/Screens/Home";
 import Login from "../../components/Screens/Login";
 import About from "../../components/Screens/About";
 import Marca from "../../components/Screens/Marca";
+import Categoria from "../../components/Screens/Categoria";
 
 const Router = () => {
   return (
@@ -10,8 +11,9 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<About />} />
         <Route path="/marca" element={<Marca />} />
+        <Route path="/categoria" element={<Categoria />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
