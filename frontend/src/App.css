@@ -135,6 +135,19 @@ th {
   background-color: rgba(131, 125, 125, 0.5);
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 .modal-header {
   background: #bac3bc; /* Verde elegante */
   color: rgb(23, 22, 22);
@@ -148,17 +161,36 @@ th {
   align-items: center; /* Centrar verticalmente */
   justify-content: space-between; /* Espacio entre el título y el botón */
 }
+
 .modal-content {
-  
   background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  width: 20%;
-  height: 30%;
+  padding: 1rem;
+  width: 40%;
+  height: 60%;
   font-size: 14px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
+  position: relative;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Asegura que el contenido no se salga del modal */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction:column;
+  gap: 1rem;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+  width: 80%;
+  height: 20%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0,8rem;
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
 }
 
 .close-btn {
@@ -167,19 +199,36 @@ th {
   border: none;
   padding: 8px 12px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-content form button {
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  width: 30%;
+  height: 5%;
+  font-size: 0,9rem;
+  box-sizing: border-box; /* Asegura que el botón se ajuste correctamente */
+  align-items: right;
+}
+
+/* Botón Crear */
+.modal-content form button[type="submit"] {
+  background-color: #7c9a97;
+  color: white;
+}
+
+.modal-content form button[type="submit"]:hover {
+  background-color: #353937;
 }
 
 .read-the-docs {
   color: #888;
 }
+
 /* Logo siempre centrado */
 .logo-libreria {
   width: 120%; /* Tamaño proporcional al contenedor */

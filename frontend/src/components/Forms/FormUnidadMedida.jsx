@@ -58,7 +58,7 @@ const UnidadesList = () => {
       alert("Error al guardar la Unidad de Medida");
     }
   };
-  //funcion para eliminar la marca
+  //funcion para eliminar la unidad de medida
     const handleDelete = async (id) => {
       if (!window.confirm("¿Estás seguro de que quieres eliminar esta Unidad de Medida?")) {
         return;
@@ -115,7 +115,7 @@ const UnidadesList = () => {
               ))}
             </tbody>
           </table>
-          <div id="marcaModal" className="modal"> 
+          <div id="marcaModal" className="modal-overlay"> 
             <div className="modal-content">
                <div className="modal-header">
       <h3>{unidadToEdit ? "Editar Unidad de Medida" : "Agregar Unidad de Medida"}</h3>

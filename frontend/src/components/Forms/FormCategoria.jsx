@@ -125,7 +125,7 @@ const CategoriasList = () => {
             </tbody>
           </table>
           {/* Modal */}
-          <div id="categoriaModal" className="modal">
+          <div id="categoriaModal" className="modal-overlay">
             <div className="modal-content">
               <div className="modal-header">
                 <h3>{categoriaToEdit ? "Editar Categoria" : "Agregar Categoria"}</h3>
@@ -133,23 +133,19 @@ const CategoriasList = () => {
               </div>
               <form onSubmit={handleSubmit}>
                 {/* ... resto del formulario ... */}
-                <br />
                     <input
                         type="text"
                         value={nombreCategoria}
                         onChange={(e) => setNombreCategoria(e.target.value)}
                         placeholder="Nombre de la Categoria"
                     />
-                <br />
-                <br />
                 <textarea
                 value={descripcionCategoria}
                 onChange={(e) => setDescripcionCategoria(e.target.value)}
                 placeholder="Descripción de la Categoría"
-                rows="4" // Puedes ajustar la altura inicial
+                rows="3" // Puedes ajustar la altura inicial
                 cols="40" // Opcional: puedes definir el ancho
                 />
-                <br />
                 <button className="btn btn_save" type="submit">
                   {categoriaToEdit ? "Actualizar" : "Guardar"}
                 </button>
