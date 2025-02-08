@@ -115,12 +115,12 @@ const MarcasList = () => {
               ))}
             </tbody>
           </table>
-          <div id="marcaModal" className="modal"> 
+          <div id="marcaModal" className="modal-overlay"> 
             <div className="modal-content">
                <div className="modal-header">
-      <h3>{marcaToEdit ? "Editar Marca" : "Agregar Marca"}</h3>
-      <button className="close-btn" onClick={closeModal}>X</button>
-            </div>
+                <h3>{marcaToEdit ? "Editar Marca" : "Agregar Marca"}</h3>
+                <button className="close-btn" onClick={closeModal}>X</button>
+               </div>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"

@@ -135,30 +135,54 @@ th {
   background-color: rgba(131, 125, 125, 0.5);
 }
 
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 .modal-header {
-  background: #bac3bc; /* Verde elegante */
-  color: rgb(23, 22, 22);
-  padding: 1px 2px; /* Menos padding para reducir la altura */
-  font-size: 14px; /* Tamaño de texto más equilibrado */
-  font-weight: bold;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  position: relative;
-  display: flex; /* Alinear elementos horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  justify-content: space-between; /* Espacio entre el título y el botón */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 .modal-content {
-  
   background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  width: 20%;
-  height: 30%;
+  padding: 1rem;
+  width: 40%;
+  height: 60%;
   font-size: 14px;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
+  position: relative;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Asegura que el contenido no se salga del modal */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
+
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction:column;
+  gap: 1rem;
+}
+.modal-content form input,
+.modal-content form textarea {
+  width: 80%;
+  height: 20%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0,8rem;
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
 }
 
 .close-btn {
@@ -167,14 +191,30 @@ th {
   border: none;
   padding: 8px 12px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-content form button {
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  width: 30%;
+  height: 5%;
+  font-size: 0,9rem;
+  box-sizing: border-box; /* Asegura que el botón se ajuste correctamente */
+  align-items: right;
+}
+
+/* Botón Crear */
+.modal-content form button[type="submit"] {
+  background-color: #7c9a97;
+  color: white;
+}
+
+.modal-content form button[type="submit"]:hover {
+  background-color: #353937;
 }
 
 .read-the-docs {
@@ -334,4 +374,117 @@ h2 {
   font-size: 0.9em;
   color: #a1a1a1;
   margin: 5px 0 0 0;
+}
+/* Overlay único para este modal */
+.modal-material-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Un fondo más oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+}
+
+/* Caja del Modal específica */
+.modal-material-content {
+  background-color: #f9f9f9;  /* Fondo diferente si lo necesitas */
+  padding: 1rem;
+  border-radius: 10px;
+  width: 90%; /* Tamaño más grande que el de otros modales */
+  max-width: 600px;
+  border-radius: 8px;
+  height: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative; /* Necesario para posicionar el botón de cierre */
+  overflow: hidden; /* Asegura que el contenido no se salga del modal */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.modal-material-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-material-content form{
+  display: flex;
+  flex-direction:column;
+  gap: 1em;
+}
+.modal-material-header h2 {
+  margin: 0; /* Quita márgenes alrededor del título */
+  font-size: 1rem; /* Tamaño de fuente claro */
+  font-weight: bold; /* Destacar el título */
+  flex-grow: 1; /* Asegura que el título ocupe el espacio disponible */
+  text-align: left; /* Alineación a la izquierda */
+}
+
+
+/* Estilo para los inputs, selects y textarea */
+.modal-material-content form input,
+.modal-material-content form select,
+.modal-material-content form textarea {
+  width: 80%;
+  height: 20%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0,8rem;
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Botones */
+.modal-material-content form button {
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  width: 30%;
+  height: 5%;
+  font-size: 0,9rem;
+  box-sizing: border-box; /* Asegura que el botón se ajuste correctamente */
+  align-items: right;
+}
+
+/* Botón Crear */
+.modal-material-content form button[type="submit"] {
+  background-color: #7c9a97;
+  color: white;
+}
+
+.modal-material-content form button[type="submit"]:hover {
+  background-color: #353937;
+}
+@media (max-width: 768px) {
+  .modal-material-content {
+    max-width: 95%; /* Más pequeño en pantallas pequeñas */
+    padding: 1.5rem;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    font-size: 0.9rem; /* Ajusta el tamaño de fuente en pantallas pequeñas */
+  }
+}
+/* Contenedor de los tres campos */
+.price-stock-container {
+  display: flex;
+  flex-direction: column; /* Apilar los campos en columna */
+  gap: 5px; /* Reduce el espacio entre los campos */
+  margin-bottom: 10px; /* Espaciado inferior con otros elementos */
+}
+
+.price-stock-container input {
+  width: 100%; /* Ajusta el ancho si es necesario */
+  padding: 8px; /* Espaciado interno del input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Incluye padding en el ancho */
 }
