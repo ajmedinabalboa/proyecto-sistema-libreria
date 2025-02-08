@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUsuario } from "../../api/ApiLogin.js"; // Ajusta la ruta de importación
-import  Logo   from "../Home/Logo.jsx";
+import libreriaLogo from "../../assets/tinywow_change_bg_photo_74242905.png";
 const FormLogin = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
@@ -40,10 +40,12 @@ const FormLogin = ({ setIsAuthenticated }) => {
   };
   return (
     <div className="login-page">
-       <div className="logo-container">
-        <Logo /> 
-      </div>
-      <div className="container">
+  <div className="logo-libreria">
+    <img src={libreriaLogo} className="logo-libreria" alt="Librería Logo" />
+  </div>
+  <h1 className="title">Librería</h1>
+  <h2 className="subtitle">G2 React</h2>
+  <div className="container">
         
         {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>

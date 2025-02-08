@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3002/api/materiales";
+const API_URL = "http://localhost:3001/api/materiales";
 
 export const fetchAllMaterials = async () => {
   const response = await fetch(API_URL);

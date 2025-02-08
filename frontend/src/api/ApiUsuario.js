@@ -1,4 +1,4 @@
-const API_URL = "https://localhost:3002/api/usuarios";
+const API_URL = "https://localhost:3001/api/usuarios";
 
 export const loginUsuario = async (formData) => {
     // eslint-disable-next-line no-useless-catch

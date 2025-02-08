@@ -1,5 +1,5 @@
 // ApiCategorias.js
-const API_URL = "http://localhost:3002/api/categorias";
+const API_URL = "http://localhost:3001/api/categorias";
 //obtener todas las marcas
 export const fetchCategorias = async () => {
  // eslint-disable-next-line no-useless-catch

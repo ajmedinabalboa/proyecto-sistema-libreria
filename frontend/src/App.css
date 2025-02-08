@@ -490,22 +490,22 @@ h2 {
 }
 /*estilos solo para el login */
 .login-page {
-  
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 50vh;
+  align-items: flex-end;
+  height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Muli', Helvetica, Arial, sans-serif;
   padding-top: 5px;
   width: 50%;
+  padding-right: 50 px
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .login-card {
@@ -569,3 +569,30 @@ h2 {
   width: 40%;
 }
 
+.about-container {
+  text-align: left;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.about-container h3 {
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.about-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-container li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.about-container h5 {
+  margin-top: 20px;
+  font-weight: normal;
+  color: #555;
+}

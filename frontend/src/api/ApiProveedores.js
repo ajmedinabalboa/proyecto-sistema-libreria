@@ -1,5 +1,5 @@
 // ApiMarcas.js
-const API_URL = "http://localhost:3002/api/proveedores";
+const API_URL = "http://localhost:3001/api/proveedores";
 //obtener todos las proveedores
 export const fetchProveedores = async () => {
  // eslint-disable-next-line no-useless-catch

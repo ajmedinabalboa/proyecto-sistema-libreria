@@ -1,5 +1,5 @@
 // ApiMarcas.js
-const API_URL = "http://localhost:3002/api/unidadesmedidas";
+const API_URL = "http://localhost:3001/api/unidadesmedidas";
 //obtener todas las marcas
 export const fetchUnidades = async () => {
  // eslint-disable-next-line no-useless-catch
