@@ -9,6 +9,8 @@ const CategoriasList = () => {
     const [nombreCategoria, setNombreCategoria] = useState("");
     const [descripcionCategoria, setDescripcionCategoria] = useState("");
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     useEffect(() => {
       cargarCategorias();
     }, []);
@@ -16,6 +18,7 @@ const CategoriasList = () => {
     const cargarCategorias = async () => {
       try {
         const data = await fetchCategorias();
+        setLoading(true);
         setCategorias(data);
       } catch (error) {
         setError(error.message);
@@ -24,16 +27,16 @@ const CategoriasList = () => {
       }
     };
     
-    // Abrir y cerrar el modal
+    // Abrir y cerrar el modal cuando se haga clic en "Agregar Marca" o "Editar"
   const openModal = (categoria = null) => {
     setCategoriaToEdit(categoria);
     setNombreCategoria(categoria ? categoria.nombre_categoria : ""); // Si es edición, llenamos el campo
     setDescripcionCategoria(categoria ? categoria.descripcion_categoria : "");
-    document.getElementById("categoriaModal").style.display = "block";
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
-    document.getElementById("categoriaModal").style.display = "none";
+    setIsModalOpen(false);
     setCategoriaToEdit(null);
     setNombreCategoria("");
     setDescripcionCategoria("");
@@ -124,7 +127,10 @@ const CategoriasList = () => {
               ))}
             </tbody>
           </table>
+
           {/* Modal */}
+         {/* MODAL SOLO SE MUESTRA SI `isModalOpen` ES `true` */}
+        {isModalOpen && (
           <div id="categoriaModal" className="modal-overlay">
             <div className="modal-content">
               <div className="modal-header">
@@ -152,6 +158,7 @@ const CategoriasList = () => {
               </form>
             </div>
           </div>
+        )}
         </div>
       );
 // Fin de la implementación del formato de la tabla

@@ -149,17 +149,10 @@ th {
 }
 
 .modal-header {
-  background: #bac3bc; /* Verde elegante */
-  color: rgb(23, 22, 22);
-  padding: 1px 2px; /* Menos padding para reducir la altura */
-  font-size: 14px; /* Tamaño de texto más equilibrado */
-  font-weight: bold;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  position: relative;
-  display: flex; /* Alinear elementos horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  justify-content: space-between; /* Espacio entre el título y el botón */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .modal-content {
@@ -181,6 +174,7 @@ th {
   flex-direction:column;
   gap: 1rem;
 }
+
 
 .modal-content form input,
 .modal-content form textarea {
@@ -383,4 +377,226 @@ h2 {
   font-size: 0.9em;
   color: #a1a1a1;
   margin: 5px 0 0 0;
+}
+/* Overlay único para este modal */
+.modal-material-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Un fondo más oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+}
+
+/* Caja del Modal específica */
+.modal-material-content {
+  background-color: #f9f9f9;  /* Fondo diferente si lo necesitas */
+  padding: 1rem;
+  border-radius: 10px;
+  width: 90%; /* Tamaño más grande que el de otros modales */
+  max-width: 600px;
+  border-radius: 8px;
+  height: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative; /* Necesario para posicionar el botón de cierre */
+  overflow: hidden; /* Asegura que el contenido no se salga del modal */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.modal-material-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-material-content form{
+  display: flex;
+  flex-direction:column;
+  gap: 1em;
+}
+.modal-material-header h2 {
+  margin: 0; /* Quita márgenes alrededor del título */
+  font-size: 1rem; /* Tamaño de fuente claro */
+  font-weight: bold; /* Destacar el título */
+  flex-grow: 1; /* Asegura que el título ocupe el espacio disponible */
+  text-align: left; /* Alineación a la izquierda */
+}
+
+
+/* Estilo para los inputs, selects y textarea */
+.modal-material-content form input,
+.modal-material-content form select,
+.modal-material-content form textarea {
+  width: 80%;
+  height: 20%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0,8rem;
+  box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Botones */
+.modal-material-content form button {
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  width: 30%;
+  height: 5%;
+  font-size: 0,9rem;
+  box-sizing: border-box; /* Asegura que el botón se ajuste correctamente */
+  align-items: right;
+}
+
+/* Botón Crear */
+.modal-material-content form button[type="submit"] {
+  background-color: #7c9a97;
+  color: white;
+}
+
+.modal-material-content form button[type="submit"]:hover {
+  background-color: #353937;
+}
+@media (max-width: 768px) {
+  .modal-material-content {
+    max-width: 95%; /* Más pequeño en pantallas pequeñas */
+    padding: 1.5rem;
+  }
+
+  form input,
+  form textarea,
+  form select {
+    font-size: 0.9rem; /* Ajusta el tamaño de fuente en pantallas pequeñas */
+  }
+}
+
+/* Contenedor de los tres campos */
+.price-stock-container {
+  display: flex;
+  flex-direction: column; /* Apilar los campos en columna */
+  gap: 5px; /* Reduce el espacio entre los campos */
+  margin-bottom: 10px; /* Espaciado inferior con otros elementos */
+}
+
+.price-stock-container input {
+  width: 100%; /* Ajusta el ancho si es necesario */
+  padding: 8px; /* Espaciado interno del input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Incluye padding en el ancho */
+}
+/*estilos solo para el login */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Muli', Helvetica, Arial, sans-serif;
+  padding-top: 5px;
+  width: 50%;
+  padding-right: 50 px
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 300px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.login-button {
+  width: 50%;
+  padding: 0.7rem;
+  background: #6daa82;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  background: #213b27;
+}
+
+.login-card-acceso {
+  display: flex;
+  position: static;
+  justify-content: bottom;
+  align-items: center;
+  height: 100vh;
+  padding-top: 5px;
+}
+.title-login {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 30rem;
+  margin-left: 1rem;
+  color: #4f4545;
+  width: 40%;
+}
+
+.about-container {
+  text-align: left;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.about-container h3 {
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.about-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-container li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.about-container h5 {
+  margin-top: 20px;
+  font-weight: normal;
+  color: #555;
 }

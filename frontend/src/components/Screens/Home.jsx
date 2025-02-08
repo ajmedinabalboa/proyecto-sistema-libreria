@@ -7,7 +7,7 @@ const Home = () => {
                 <Logo /> 
             </div>
             <h1>Libreria</h1>
-            <h2>G2 React</h2>
+            <h2>El rincón de la sabiduría</h2>
         </>
     )
 }

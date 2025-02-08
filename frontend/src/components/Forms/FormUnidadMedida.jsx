@@ -9,6 +9,8 @@ const UnidadesList = () => {
    
     const [nombreUnidad, setNombreUnidad] = useState("");
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     useEffect(() => {
       cargarUnidades();
     }, []);
@@ -16,6 +18,7 @@ const UnidadesList = () => {
     const cargarUnidades = async () => {
       try {
         const data = await fetchUnidades();
+        setLoading(true);
         setUnidades(data);
       } catch (error) {
         setError(error.message);
@@ -27,10 +30,10 @@ const UnidadesList = () => {
   const openModal = (unidad = null) => {
     setUnidadToEdit(unidad);
     setNombreUnidad(unidad ? unidad.nombre_unidadmedida : ""); // Si es edición, llenamos el campo
-    document.getElementById("marcaModal").style.display = "block";
+    setIsModalOpen(true); 
   };
   const closeModal = () => {
-    document.getElementById("marcaModal").style.display = "none";
+    setIsModalOpen(false); 
     setUnidadToEdit(null);
     setNombreUnidad("");
   };
@@ -118,8 +121,8 @@ const UnidadesList = () => {
           <div id="marcaModal" className="modal-overlay"> 
             <div className="modal-content">
                <div className="modal-header">
-      <h3>{unidadToEdit ? "Editar Unidad de Medida" : "Agregar Unidad de Medida"}</h3>
-      <button className="close-btn" onClick={closeModal}>X</button>
+              <h3>{unidadToEdit ? "Editar Unidad de Medida" : "Agregar Unidad de Medida"}</h3>
+              <button className="close-btn" onClick={closeModal}>X</button>
             </div>
             <form onSubmit={handleSubmit}>
               <input

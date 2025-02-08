@@ -8,7 +8,6 @@ const ProveedoresList = () => {
     const [proveedorToEdit, setProveedorToEdit] = useState(null); // La marca que vamos a editar
    
     const [nombreProveedor, setNombreProveedor] = useState("");
-
     useEffect(() => {
       cargarProveedores();
     }, []);
@@ -27,10 +26,6 @@ const ProveedoresList = () => {
   const openModal = (proveedor = null) => {
     setProveedorToEdit(proveedor);
     setNombreProveedor(proveedor ? proveedor.nombre_proveedor : ""); // Si es edición, llenamos el campo
-    document.getElementById("marcaModal").style.display = "block";
-  };
-  const closeModal = () => {
-    document.getElementById("marcaModal").style.display = "none";
     setProveedorToEdit(null);
     setNombreProveedor("");
   };
