@@ -175,8 +175,6 @@ th {
   gap: 1rem;
 }
 
-
-.modal-content form input,
 .modal-content form textarea {
   width: 80%;
   height: 20%;
@@ -268,7 +266,16 @@ h2 {
   }
 
   .Home {
-    padding-left: 0; /* Elimina espacio si el sidebar se oculta */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos verticalmente */
+  height: 100vh; /* Ocupar toda la altura de la pantalla */
+  text-align: center;
+  padding-right: 25%; /* Ajuste para que no se cubra con el sidebar */
+  padding-top: -50%;
+  transition: padding-left 0.3s ease-in-out;
+  position: relative; /* Asegura que todo quede en su sitio */
   }
 
   h1, h2 {
@@ -510,6 +517,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .login-card {

@@ -12,7 +12,7 @@ const Router = () => {
   return (
     <div className="content">
       <Routes>
-
+        <Route path="/home" element={<Home />} />
         <Route path="/material" element={<Material />} />
         <Route path="/marca" element={<Marca />} />
         <Route path="/categoria" element={<Categoria />} />

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-// ApiProveedores.js
-=======
-// ApiMarcas.js
->>>>>>> features/Logins
 const API_URL = "http://localhost:3001/api/proveedores";
 //obtener todos las proveedores
 export const fetchProveedores = async () => {

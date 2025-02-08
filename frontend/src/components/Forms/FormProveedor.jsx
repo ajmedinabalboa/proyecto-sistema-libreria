@@ -8,6 +8,9 @@ const ProveedoresList = () => {
     const [proveedorToEdit, setProveedorToEdit] = useState(null); // La marca que vamos a editar
    
     const [nombreProveedor, setNombreProveedor] = useState("");
+
+    const [isModalOpen, setIsModalOpen] = useState(false); 
+
     useEffect(() => {
       cargarProveedores();
     }, []);
@@ -15,6 +18,7 @@ const ProveedoresList = () => {
     const cargarProveedores = async () => {
       try {
         const data = await fetchProveedores();
+        setLoading(true);
         setProveedores(data);
       } catch (error) {
         setError(error.message);
@@ -26,6 +30,10 @@ const ProveedoresList = () => {
   const openModal = (proveedor = null) => {
     setProveedorToEdit(proveedor);
     setNombreProveedor(proveedor ? proveedor.nombre_proveedor : ""); // Si es edición, llenamos el campo
+    setIsModalOpen(true); 
+  };
+  const closeModal = () => {
+    setIsModalOpen(false); 
     setProveedorToEdit(null);
     setNombreProveedor("");
   };
@@ -110,6 +118,8 @@ const ProveedoresList = () => {
               ))}
             </tbody>
           </table>
+          {/* MODAL SOLO SE MUESTRA SI `isModalOpen` ES `true` */}
+        {isModalOpen && (
           <div id="marcaModal" className="modal-overlay"> 
             <div className="modal-content">
                <div className="modal-header">
@@ -130,6 +140,7 @@ const ProveedoresList = () => {
             </form>
           </div>
         </div>
+        )}
       </div>
       );
 // Fin de la implementación del formato de la tabla

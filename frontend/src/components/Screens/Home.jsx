@@ -1,6 +1,7 @@
 import Logo from '../../components/Home/Logo'
 
 const Home = () => {
+    console.log('home randeriza')
     return (
         <>
             <div className='Home'>

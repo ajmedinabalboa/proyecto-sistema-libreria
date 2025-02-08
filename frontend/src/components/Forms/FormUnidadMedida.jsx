@@ -118,6 +118,8 @@ const UnidadesList = () => {
               ))}
             </tbody>
           </table>
+          {/* MODAL SOLO SE MUESTRA SI `isModalOpen` ES `true` */}
+          {isModalOpen && (
           <div id="marcaModal" className="modal-overlay"> 
             <div className="modal-content">
                <div className="modal-header">
@@ -138,6 +140,7 @@ const UnidadesList = () => {
             </form>
           </div>
         </div>
+          )}
       </div>
       );
 // Fin de la implementación del formato de la tabla
