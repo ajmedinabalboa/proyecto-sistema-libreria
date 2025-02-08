@@ -7,18 +7,19 @@ import Categoria from "../../components/Screens/Categoria";
 import Unidad from "../../components/Screens/Unidad";
 import Material from "../../components/Screens/Material";
 import Proveedor from "../../components/Screens/Proveedor";
+import Logout from "../../components/Screens/Logout";
 const Router = () => {
   return (
     <div className="content">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/material" element={<Material />} />
         <Route path="/marca" element={<Marca />} />
         <Route path="/categoria" element={<Categoria />} />
         <Route path="/unidad" element={<Unidad />} />
         <Route path="/proveedor" element={<Proveedor />} />
         <Route path="/about" element={<About />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );

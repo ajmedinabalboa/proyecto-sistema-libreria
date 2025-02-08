@@ -488,3 +488,84 @@ h2 {
   font-size: 1rem;
   box-sizing: border-box; /* Incluye padding en el ancho */
 }
+/*estilos solo para el login */
+.login-page {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 5px;
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 300px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.login-button {
+  width: 50%;
+  padding: 0.7rem;
+  background: #6daa82;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background: #213b27;
+}
+
+.login-card-acceso {
+  display: flex;
+  position: static;
+  justify-content: bottom;
+  align-items: center;
+  height: 100vh;
+  padding-top: 5px;
+}
+.title-login {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 30rem;
+  margin-left: 1rem;
+  color: #4f4545;
+  width: 40%;
+}
+

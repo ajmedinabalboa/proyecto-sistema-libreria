@@ -19,10 +19,8 @@ const Navigator = () => {
       {/* SIDEBAR */}
       <aside className={`sidebar ${isSidebarOpen ? "" : "hidden"}`}>
         <ul>
-          <li><Link to="/" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>
+          <li><Link to="/home" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>
           <img src={menuLogo.home} alt="Home" className="nav-icon" />Home</Link></li>
-          <li><Link to="/login" className={`nav-link ${location.pathname === "/login" ? "active" : ""}`}>
-          <img src={menuLogo.login} alt="Login" className="nav-icon" />Login</Link></li>
           <li><Link to="/material" className={`nav-link ${location.pathname === "/material" ? "active" : ""}`}>
           <img src={menuLogo.marca} alt="Material" className="nav-icon" />Material</Link></li>
           <li><Link to="/marca" className={`nav-link ${location.pathname === "/marca" ? "active" : ""}`}>
@@ -35,6 +33,8 @@ const Navigator = () => {
           <img src={menuLogo.categoria} alt="Proveedor" className="nav-icon" />Proveedor</Link></li>
           <li><Link to="/about" className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}>
           <img src={menuLogo.about} alt="About" className="nav-icon" />About</Link></li>
+          <li><Link to="/logout" className={`nav-link ${location.pathname === "/logout" ? "active" : ""}`}>
+          <img src={menuLogo.login} alt="Logout" className="nav-icon" />Logout</Link></li>
         </ul>
       </aside>
     </>

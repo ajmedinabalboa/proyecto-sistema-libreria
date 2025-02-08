@@ -8,6 +8,7 @@ const MarcasList = () => {
     const [marcaToEdit, setMarcaToEdit] = useState(null); // La marca que vamos a editar
    
     const [nombreMarca, setNombreMarca] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
       cargarMarcas();
@@ -16,6 +17,7 @@ const MarcasList = () => {
     const cargarMarcas = async () => {
       try {
         const data = await fetchMarcas();
+        setLoading(true);
         setMarcas(data);
       } catch (error) {
         setError(error.message);
@@ -23,14 +25,14 @@ const MarcasList = () => {
         setLoading(false);
       }
     }; 
-    // Abrir y cerrar el modal
+    // Abrir y cerrar el modal cuando se haga clic en "Agregar Marca" o "Editar"
   const openModal = (marca = null) => {
     setMarcaToEdit(marca);
     setNombreMarca(marca ? marca.nombre_marca : ""); // Si es edición, llenamos el campo
-    document.getElementById("marcaModal").style.display = "block";
+    setIsModalOpen(true); 
   };
   const closeModal = () => {
-    document.getElementById("marcaModal").style.display = "none";
+    setIsModalOpen(false); // Ahora el modal solo se abrirá al hacer clic
     setMarcaToEdit(null);
     setNombreMarca("");
   };
@@ -115,6 +117,8 @@ const MarcasList = () => {
               ))}
             </tbody>
           </table>
+          {/* MODAL SOLO SE MUESTRA SI `isModalOpen` ES `true` */}
+          {isModalOpen && (
           <div id="marcaModal" className="modal-overlay"> 
             <div className="modal-content">
                <div className="modal-header">
@@ -135,6 +139,7 @@ const MarcasList = () => {
             </form>
           </div>
         </div>
+          )}
       </div>
       );
 // Fin de la implementación del formato de la tabla
