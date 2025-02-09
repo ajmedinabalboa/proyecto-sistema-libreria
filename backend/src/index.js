@@ -3,6 +3,14 @@ import 'dotenv/config';
 import logger from "./logs/logger.js";
 import sequelize from "./database/database.js";
 
+// Importar los modelos para asegurarnos de que se cargan
+import { Usuario } from "./models/usuarios.js";
+import { Rol } from "./models/roles.js";
+
+// Definir las relaciones después de importar los modelos
+Rol.hasMany(Usuario, { foreignKey: "rolId" });
+Usuario.belongsTo(Rol, { foreignKey: "rolId" });
+
 
 const { seedRoles } = await import("./database/seeders/add_roles.mjs");
 const { add_usuarios } = await import("./database/seeders/add_usuarios.mjs");
