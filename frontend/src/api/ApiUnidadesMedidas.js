@@ -1,6 +1,6 @@
-// ApiMarcas.js
+// ApiUnidadesMedidas.js
 const API_URL = "http://localhost:3001/api/unidadesmedidas";
-//obtener todas las marcas
+//obtener todas las unidades de medida
 export const fetchUnidades = async () => {
  // eslint-disable-next-line no-useless-catch
  try {
@@ -25,7 +25,7 @@ export const addUnidad = async (nombre_unidadmedida) => {
       throw new Error("No se pudo agregar la Unidad de Medida");
     }
   };
-// Actualizar una marca
+// Actualizar una unidad
 export const updateUnidad = async (id, nombre_unidadmedida) => {
   // eslint-disable-next-line no-useless-catch
   try {

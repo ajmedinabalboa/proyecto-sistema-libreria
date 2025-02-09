@@ -1,10 +1,13 @@
 const About = () => {
     return (
-        <div className="about-container">
+        <div className="card-table">
+            <div className="table-header">
+                <h3 className="table-title">Proyecto Final Libreria El Rincon de la Sabiduria</h3>
+          </div>
             <h3>Desarrolladores Front End</h3>
             <ul>
                 <li>Luis Carlos Iturricha</li>
-                <li>Silvia Vigabriel</li>
+                <li>Silvia Vigabriel Muñoz</li>
             </ul>
 
             <h3>Desarrolladores Back End</h3>

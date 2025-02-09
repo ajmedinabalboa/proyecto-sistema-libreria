@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3001";
 
-export const loginUsuario = async (email,contraseña) => {
+export const loginUsuario = async (email, contraseña) => {
     // eslint-disable-next-line no-useless-catch
     try {
         const response = await fetch(`${API_URL}/login`, {

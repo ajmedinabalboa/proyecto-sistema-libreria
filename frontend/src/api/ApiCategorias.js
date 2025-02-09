@@ -12,7 +12,7 @@ export const fetchCategorias = async () => {
   }
 };
 // Agregar una nueva marca
-export const addCategoria = async (nombre_categoria,descripcion_categoria) => {
+export const addCategoria = async (nombre_categoria, descripcion_categoria) => {
     try {
       const response = await fetch(API_URL, {
         method: "POST",
