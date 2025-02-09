@@ -40,11 +40,11 @@ const FormLogin = ({ setIsAuthenticated }) => {
   };
   return (
     <div className="login-page">
-       <div className="logo-container">
+       
+      <div className="container">
+      <div >
         <Logo /> 
       </div>
-      <div className="container">
-        
         {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="login-card">
