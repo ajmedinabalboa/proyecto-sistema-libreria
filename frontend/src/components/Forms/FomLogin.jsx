@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUsuario } from "../../api/ApiLogin.js"; // Ajusta la ruta de importación
-import libreriaLogo from "../../assets/tinywow_change_bg_photo_74242905.png";
+import Logo from "../Home/Logo.jsx"
+
 const FormLogin = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
@@ -30,7 +31,7 @@ const FormLogin = ({ setIsAuthenticated }) => {
         setIsAuthenticated(true); // Actualiza el estado global
         sessionStorage.setItem("isAuthenticated", "true"); // Persistencia con sessionStorage (si usas Solución 2)
         navigate("/home");
-        
+
       } else {
         setError("Credenciales incorrectas.");
       }
@@ -40,47 +41,42 @@ const FormLogin = ({ setIsAuthenticated }) => {
   };
   return (
     <div className="login-page">
-<<<<<<< HEAD
-       
-      <div className="container">
-      <div >
-        <Logo /> 
+      <div className="left-container">
+        <Logo />
+        <div className="title-container">
+          <h2 className="title">Librería</h2>
+          <h3 className="subtitle">El Rincon de la Sabiduria</h3>
+        </div>
       </div>
-=======
-  
-  <h1 className="title">Librería</h1>
-  <h2 className="subtitle">G2 React</h2>
-  <div className="container">
-        
->>>>>>> development
+      <div className="container">
         {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="login-card">
-          
+
             <div className="input-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Ingrese su email"
-              required
-            />
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Ingrese su email"
+                required
+              />
             </div>
             <div className="input-group">
-            <label htmlFor="contraseña">Contraseña:</label>
-            <input
-              type="password"
-              id="contraseña"
-              value={contraseña}
-              onChange={(e) => setContraseña(e.target.value)}
-              placeholder="Ingrese su contraseña"
-              required
-            />
+              <label htmlFor="contraseña">Contraseña:</label>
+              <input
+                type="password"
+                id="contraseña"
+                value={contraseña}
+                onChange={(e) => setContraseña(e.target.value)}
+                placeholder="Ingrese su contraseña"
+                required
+              />
+            </div>
           </div>
-          </div>
-          
+
           <button className="login-button" type="submit">Iniciar Sesión</button>
         </form>
         {userData && userData.nombre ? (
@@ -92,7 +88,7 @@ const FormLogin = ({ setIsAuthenticated }) => {
           userData && <p>No se pudo obtener la información del usuario.</p>
         )}
       </div>
-      </div>
+    </div>
   );
 };
 
