@@ -1,5 +1,5 @@
 // ApiMarcas.js
-const API_URL = "http://localhost:3002/api/marcas";
+const API_URL = "http://localhost:3001/api/marcas";
 //obtener todas las marcas
 export const fetchMarcas = async () => {
  // eslint-disable-next-line no-useless-catch

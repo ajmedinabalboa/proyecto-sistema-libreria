@@ -48,12 +48,12 @@ const MaterialList = () => {
     }
   };
   return (
+
     <div className="card-table">
         {/* Encabezado con título y subtítulo */}
         <div className="table-header">
             <h3 className="table-title">Lista de Materiales</h3>
           </div>
-         
       {/* Botón para agregar un nuevo material */}
       <button  className="btn btn_add" onClick={handleAddNewMaterial}>
         Agregar Nuevo Material
@@ -76,14 +76,12 @@ const MaterialList = () => {
               <td>{mat.descripcion_material}</td>
               <td>{mat.precio_unitario}</td>
               <td>
-              <div className="action-buttons">
                 <button className="btn btn_update" onClick={() => handleEdit(mat.id)}>
                   Editar
                 </button>
                 <button className="btn btn_delete" onClick={() => handleDelete(mat.id)}>
                   Eliminar
                 </button>
-                </div>
               </td>
             </tr>
           ))}

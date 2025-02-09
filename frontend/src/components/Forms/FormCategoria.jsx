@@ -127,6 +127,8 @@ const CategoriasList = () => {
               ))}
             </tbody>
           </table>
+
+          {/* Modal */}
          {/* MODAL SOLO SE MUESTRA SI `isModalOpen` ES `true` */}
         {isModalOpen && (
           <div id="categoriaModal" className="modal-overlay">
@@ -137,7 +139,6 @@ const CategoriasList = () => {
               </div>
               <form onSubmit={handleSubmit}>
                 {/* ... resto del formulario ... */}
-               
                     <input
                         type="text"
                         value={nombreCategoria}
@@ -151,7 +152,6 @@ const CategoriasList = () => {
                 rows="3" // Puedes ajustar la altura inicial
                 cols="40" // Opcional: puedes definir el ancho
                 />
-               
                 <button className="btn btn_save" type="submit">
                   {categoriaToEdit ? "Actualizar" : "Guardar"}
                 </button>
