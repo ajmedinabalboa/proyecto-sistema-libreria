@@ -38,7 +38,7 @@ Este archivo puede ser importado en Postman para facilitar las pruebas de los se
 Después de ejecutar el script `build.sh`, la aplicación estará disponible en el siguiente enlace:
 
 ```
-http://localhost:5173/
+http://localhost:8383/
 ```
 
 Los usuarios disponibles para acceder a la aplicación son:
