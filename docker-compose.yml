@@ -6,7 +6,7 @@ services:
     container_name: libreria-db
     restart: always
     ports:
-      - "${DB_PORT}:5432"
+      - "${DB_DB_PORT}:5432"
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
@@ -31,7 +31,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_DATABASE=${DB_DATABASE}
       - DB_HOST=db # Nombre del servicio de la base de datos
-      - DB_PORT=${DB_PORT} # Asegúrate de usar 5432 aquí
+      - DB_PORT=${DB_DB_PORT} # Asegúrate de usar 5432 aquí
     env_file:
       - ./backend/.env
     command: npm run dev
