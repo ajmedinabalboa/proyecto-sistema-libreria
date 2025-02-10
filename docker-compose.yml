@@ -52,7 +52,7 @@ services:
     depends_on:
       - backend
     ports:
-      - 5173:5173
+      - 8383:8383
     volumes:
       - ./frontend:/app
       - /app/node_modules
