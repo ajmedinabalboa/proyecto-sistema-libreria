@@ -7,20 +7,20 @@ export async function add_usuarios() {
         {
             "nombre": "Juan Perez",
             "email": "jperez@gmail.com",
-            "password": "DockerFile1",
+            "password": process.env.USER_PWD,
             "rolId": 1
         },
         {
             "nombre": "Laura Caceres",
             "email": "lcaceres@gmail.com",
-            "password": "DockerFile2",
+            "password": process.env.USER_PWD,
             "rolId": 1
         },
         {
             "nombre": "Juan Lopez",
             "email": "jlopez@gmail.com",
-            "password": "DockerFile3",
-            "rolId": 2
+            "password": process.env.USER_PWD,
+            "rolId": 1
         }
     ];
     try {
