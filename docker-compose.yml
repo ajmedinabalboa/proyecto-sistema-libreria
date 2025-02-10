@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   db:
@@ -17,13 +17,13 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - libreria-network
-      
+
   backend:
-    build: 
-     context: ./backend
-     dockerfile: Dockerfile
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: libreria-backend
-    restart: always    
+    restart: always
     depends_on:
       - db
     environment:
@@ -37,26 +37,27 @@ services:
     command: npm run dev
     volumes:
       - ./backend:/app
+      - /app/node_modules
     ports:
-      - 3001:3001    
+      - 3001:3001
     networks:
       - libreria-network
-      
+
   frontend:
     build:
-     context: ./frontend
-     dockerfile: Dockerfile
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: libreria-frontend
     restart: always
     depends_on:
-      - backend    
+      - backend
     ports:
       - 5173:5173
     volumes:
-      - ./frontend:/app 
-      - /app/node_modules      
+      - ./frontend:/app
+      - /app/node_modules
     networks:
-      - libreria-network 
+      - libreria-network
 
 volumes:
   postgres_data:
